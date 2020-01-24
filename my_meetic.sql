@@ -1,6 +1,8 @@
 CREATE TABLE membre (
     id_membre INT UNSIGNED NOT NULL AUTO_INCREMENT,
     id_loisir INT UNSIGNED NOT NULL,
+    id_loisir2 INT UNSIGNED NOT NULL,
+    id_loisir3 INT UNSIGNED NOT NULL,
     id_ville INT UNSIGNED NOT NULL,
     nom VARCHAR(60) NOT NULL,
     prenom VARCHAR(60) NOT NULL,

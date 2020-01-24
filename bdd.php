@@ -4,10 +4,12 @@ class Connexion {
     private $host="localhost";
 	private $login="root";
 	private $pass="root";
-    private $db="my_meetic";
+    public $db="my_meetic";
 
-
-	protected function connexion(){
+	function __construct(){
+		$this->connect();
+	}
+	function connect(){
 		try
 		{
 			$bdd = new PDO('mysql:host='.$this->host.';dbname='.$this->db, $this->login, $this->pass);
@@ -18,8 +20,9 @@ class Connexion {
 		{
 			$msg = 'ERREUR PDO dans ' . $e->getFile() . ' L.' . $e->getLine() . ' : ' . $e->getMessage();
 			die($msg);
-        }
-        return $bdd;
+		}
 	}
+
+	
     
 }

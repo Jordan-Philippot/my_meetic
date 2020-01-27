@@ -3,11 +3,11 @@
         <!--_______________________________________________________________  HEADER  __________________________________________________________________________-->
    
             <div class="container_index">
-                <h1> Bienvenue sur my meetic !  </h1>
+                <h1> Bienvenue sur my meetic  </h1>
         
-                <a href="registration.php"><button type="submit" id="subscrib_index">S'incrire</button></a>
+                <a href="profil.php"><button type="submit" id="subscrib_index">Mon profil</button></a>
             
-                <a href="connection.php"><button type="submit" id="connexion_index">Se connecter</button></a>
+                <a href="search.php"><button type="submit" id="connexion_index">Rechercher des membres</button></a>
             </div>
 
         <!--___________________________________________________________________________    BODY     _________________________________________________________________________________________-->

@@ -1,35 +1,73 @@
 <?php require_once '../View/header.php';?>
 
-    <div id="container_profil">
-        <h1> Profil </h1>
+  <div class="container_profil">
 
-    <?php
-    if(isset($_GET['profil'])){
-
-      $members = $bdd->query('SELECT membre.id_perso AS "id_perso", membre.nom AS "nom", membre.prenom AS "prenom", membre.date_naissance AS "date_naissance", 
-      membre.ville AS "ville", membre.email AS "email", membre.cpostal AS "cpostal", membre.date_inscription AS "date_inscription", membre.id_membre AS "id_membre", 
-      membre.id_abo AS "id_abo", membre.date_abo AS "date_abo" FROM membre INNER JOIN membre ON membre.id_perso = membre.id_fiche_perso 
-      WHERE nom LIKE "%'.$search_members.'%" ORDER BY nom ASC LIMIT '.$begin.','.$resultPerPage.'');
-      
-    if($member->rowCount() > 0){
-      echo '<div class="member_profil">';
-      
-      while($member_profil = $member->fetch()){
-      echo '<div class="card">
-          <a href="'.$member_profil['nom'].'"><img width="100%" src="'.$member_profil['prenom'].'" alt="'.$member_profil['date_naissance'].'"></a>
-          <div class="member_body">
-            <h5>'.$member_profil['genre'].' </h5>
-            <p class="member_footer">'.$member_profil['email'].'</p>
-            <small class="text-muted">'.$member_profil['date_inscription'].'</small>
-        </div>
-      </div>';
-      }
-    else {
-        echo '<div class="error_member">
-            Veuillez nous excusez, aucun résultat n\'a été trouvé pour ce membre: "'.$search.'" ...
-          </div>';
-    }
-  }?>
+ 
+    <div class="">
+      <h1 class="">Votre profil <br></h1>
     </div>
+
+    <div class="profil_block">
+        <?php
+      if(isset($_SESSION['auth'])){
+      echo '<div class="form-groupe">
+            <p class="profil_session"><u>Prénom</u> : </p><p> '.$_SESSION['auth'][6].'</p>
+          </div>
+
+          <div class="form-groupe">
+            <p class="profil_session"><u>Nom</u>: </p><p> '.$_SESSION['auth'][5].'</p>
+          </div>
+
+          <div class="form-groupe">
+            <p class="profil_session"><u>Email</u> : </p><p>'.$_SESSION['auth'][9].'</p>
+          </div>
+        
+          <div class="form-groupe">
+            <p class="profil_session"><u>Genre</u> : </p><p> '.$_SESSION['auth'][8].'</p>
+          </div>
+
+          <div class="form-groupe">
+            <p class="profil_session"><u>Ville</u> : </p><p>'.$_SESSION['auth'][4].'</p>
+          </div>
+
+          <div class="form-groupe">
+             <p class="profil_session"><u>Date de naissance</u> : </p><p>'.$_SESSION['auth'][7].'</p>
+          </div>';
+          if(isset($_SESSION['auth'][2]) && !empty($_SESSION['auth'][2]) && !is_null($_SESSION['auth'][2]) && isset($_SESSION['auth'][3]) && !empty($_SESSION['auth'][3]) && !is_null($_SESSION['auth'][3])){
+          echo '<div class="form-groupe">
+             <p class="profil_session"><u>Loisirs</u> : </p><p>'.$_SESSION['auth'][1].', '.$_SESSION['auth'][2].', '.$_SESSION['auth'][3].'</p>
+          </div>';
+          }
+          elseif(isset($_SESSION['auth'][2]) && !empty($_SESSION['auth'][2]) && !is_null($_SESSION['auth'][2])){
+            echo '<div class="form-groupe">
+             <p class="profil_session"><u>Loisirs</u> : </p><p>'.$_SESSION['auth'][1].', '.$_SESSION['auth'][2].'</p>
+          </div>';
+          }
+          else{
+            echo '<div class="form-groupe">
+             <p class="profil_session"><u>Loisirs</u> : </p><p>'.$_SESSION['auth'][1].'</p>
+          </div>';
+          }
+          
+          echo '<div class="form-groupe">
+            <p class="profil_session"><u>Mot de passe</u> : </p><p> ******** </p>
+          </div>
+        
+
+        <div class="form-groupe">
+          <p class="profil_session"><u>Date d\'inscription</u> : </p><p>'.$_SESSION['auth'][11].'<br></p>
+        </div>
+
+
+        <form action="edit.php" method="get">
+          <button type="submit" id="edit_button">Modifier mon compte</button>
+        </form>
+
+        <div>
+          <p><a id="disconnect" href="connection.php">Se déconnecter</a><p>
+        </div>
+
+    </div>';}?>
+  </div>
 
 <?php require_once '../View/footer.php';

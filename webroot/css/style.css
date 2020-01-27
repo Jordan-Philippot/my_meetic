@@ -166,6 +166,16 @@ transition: all 0.15s;
 #connec:hover{
     color: white;
 }
+.alert-danger{
+    background-color: red;
+    color: white;
+    padding: 1vw;
+    width: 30vw;
+    border-radius: 1vw;
+    border: 1px solid white;
+    margin-top: 30vw;
+    margin-left: 33vw;
+}
 footer nav{
     height: 1.5vw;
     bottom: 0vw;

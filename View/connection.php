@@ -2,7 +2,7 @@
 
 
 <div class="container1">
-<form action="profil.php" method="post" class="">
+<form action="../Controller/connectionController.php" method="get">
 
     <h1> Se connecter </h1>
     <div class="form-connect">
@@ -27,7 +27,6 @@
     </div>
 </form>
 </div>
-
 
 
 

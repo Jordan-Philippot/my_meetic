@@ -1,12 +1,55 @@
-#container_profil{
+.container_profil{
     border-radius: 20px;
     background: rgb(217, 217, 217, 0.5);
     width: 30vw;
-    height: 22vw;
+    height: 38vw;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 12vw;
-    padding: 1vw;
+    margin-top: 6vw;
+    padding: 2vw;
     position: relative;
     z-index: 100;
+}
+.form-groupe {
+    position: relative;
+    padding: 0px;
+    width: 100%;
+}
+.form-groupe p{
+display: inline-flex;
+}
+#edit_button{
+width: 15vw;
+height: 2vw;
+display: inline-block;
+padding: 0.46em 1.6em;
+border: 0.1em solid black;
+border-radius: 20px;
+margin-left: auto;
+margin-right: auto;
+margin-top: 3vw;
+margin-bottom: 0.5vw;
+box-sizing: border-box;
+text-decoration: none;
+font-family: 'Roboto', sans-serif;
+color: black;
+text-shadow: 0em 0.04em 0.04em rgba(0, 0, 0, 0.35);
+background-color: #4ef18f;
+transition: all 0.15s;
+}
+#edit_button:hover{
+    text-shadow: 0em 0em 2em rgba(255, 255, 255, 1);
+    color: white;
+    border-color: white;
+}
+.profil_session{
+   margin-left: 10px;
+   width: 50%;
+}
+#disconnect{
+    margin-left: 75%;
+    font-size: 0.8vw;
+}
+#disconnect:hover{
+    color: white;
 }

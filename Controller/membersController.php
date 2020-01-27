@@ -15,10 +15,13 @@ Class MembersController extends MembersModel{
 
             $_GET['nom'] = htmlspecialchars($_GET['nom']);
             $_GET['prenom'] = htmlspecialchars($_GET['prenom']);
-            $_GET['emai'] = htmlspecialchars($_GET['email']);
+            $_GET['email'] = htmlspecialchars($_GET['email']);
             $_GET['ville'] = htmlspecialchars($_GET['ville']);
             $_GET['password'] = htmlspecialchars($_GET['password']);
             $_GET['password_confirm'] = htmlspecialchars($_GET['password_confirm']);
+            $_GET['loisir1'] = htmlspecialchars($_GET['loisir1']);
+            $_GET['loisir2'] = htmlspecialchars($_GET['loisir2']);
+            $_GET['loisir3'] = htmlspecialchars($_GET['loisir3']);
 
             if(empty($_GET['nom']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_GET['nom']) || !is_string($_GET['nom'])){
                 $errors['nom'] = "Votre nom n'est pas valide";
@@ -29,6 +32,13 @@ Class MembersController extends MembersModel{
 
             if(!isset($_GET['date_naissance']) || empty($_GET['date_naissance'])){
                 $errors['date_naissance'] = "Veuillez renseigner une date de naissance";
+                $date = new DateTime();
+                $date_18 = $date->sub(new DateInterval('P18Y'));
+                // sub soustrait, si $_GET['date_naissance'] est au format date par exemple = 2001-12-25
+                $date_naissance = new DateTime($_GET['date_naissance']);
+                if($date_naissance >= $date_18){
+                    $errors['date_naissance'] = "Vous devez être majeur pour vous inscrire";
+                }
             }
 
             if(!isset($_GET['genre']) || empty($_GET['genre'])){
@@ -38,10 +48,11 @@ Class MembersController extends MembersModel{
             if(empty($_GET['email']) || !filter_var($_GET['email'], FILTER_VALIDATE_EMAIL)){ // filter_var permet de verifier le type du contenu (plus pratique que preg_match)
                 $errors['email'] = "Votre email n'est pas valide";
             }
-            /*else{
+           /* else{
+                //$id_membre = lastInsertId();
                 $member = new MembersModel();
-                $member->emailModel($_GET['email']);
-                if($member){ // header ('Location : ../View/connection.php');
+                $member->emailModel( $id_membre, $_GET['email']);
+                if($member){ // header ('Location: ../View/registration.php');
                     $errors['email'] = 'Cet email est déjà utilisé pour un autre compte.';
                 }
             }*/
@@ -50,7 +61,7 @@ Class MembersController extends MembersModel{
                 $errors['ville'] = "Veuillez renseigner votre ville";
             }
 
-            if(!isset($_GET['loisir1']) || $_GET['loisir1'] == $_GET['loisir2'] || $_GET['loisir1'] == $_GET['loisir3'] || $_GET['loisir2'] == $_GET['loisir3']){
+            if(!isset($_GET['loisir1']) || $_GET['loisir1'] == $_GET['loisir2'] || $_GET['loisir1'] == $_GET['loisir3']){
                 $errors['loisir1'] = "Veuillez renseigner votre/vos loisir(s) ( 3 Maximum)";
             }
 
@@ -58,16 +69,26 @@ Class MembersController extends MembersModel{
             $errors['password'] = "Vous devez rentrer un mot de passe valide";
             }
             var_dump($errors);
+            
             if(empty($errors)){
+                $_GET['password'] = password_hash($_GET['password'], PASSWORD_BCRYPT);
                 $member = new MembersModel();
                 $member->subscribeModel($_GET['loisir1'], $_GET['loisir2'], $_GET['loisir3'], $_GET['ville'], $_GET['nom'], $_GET['prenom'], $_GET['date_naissance'], $_GET['genre'], $_GET['email'], $_GET['password']);
-                
-                //die('Votre compte a bien été créé');
-               
-                //header ('Location : View/connection.php');
+              
+                header ("Location: ../View/connection.php");
+                die('Votre compte a bien été créé');
             }
-        
-        
+            elseif(!empty($errors)){
+                echo '<div class="alert-danger">
+                <p>Vous n\'avez pas rempli le formulaire correctement</p>
+                <ul>';
+                foreach($errors as $error){
+                    echo'<li>'.$error.' </li>';
+                }
+                echo'</ul>
+                </div>';
+                header ("Location: ../View/registration.php");
+            };
         
     }
      
@@ -75,7 +96,8 @@ Class MembersController extends MembersModel{
 
 $members = new MembersController();
 $members->subscribeController($_GET['loisir1'], $_GET['loisir2'], $_GET['loisir3'], $_GET['ville'], $_GET['nom'], $_GET['prenom'], $_GET['date_naissance'], $_GET['genre'], $_GET['email'], $_GET['password']);
-var_dump($members);
+
+
 
 
 require_once '../View/footer.php';

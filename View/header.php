@@ -42,8 +42,12 @@ catch (Exception $e){
                 <ul>
                     <li><img id="meetic" src="../webroot/Images/meetic.png" alt="logo meetic"></li>
                     <li><a href="index.php">Accueil</a></li>
+                    <?php if(isset($_SESSION['auth'])){ ?>
+                    <li><a href="index.php">Déconnexion</a></li>
+                    <?php } else{ ?>
                     <li><a href="connection.php">Se connecter</a></li>
                     <li><a href="registration.php">S'inscrire</a></li>
+                     <?php } ?>
                 </ul>
             </nav>
         </header>

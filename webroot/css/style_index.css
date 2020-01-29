@@ -10,15 +10,14 @@
     position: relative;
     z-index: 100;
 }
-
-#subscrib_index{
+.subscrib_index, .connexion_index, .connexion{
     width: 15vw;
     height: 2vw;
     display: inline-block;
-    padding: 0.46 1.6em;
+    padding: 0.46 3px;
     border: 0.1em solid black;
     border-radius: 20px;
-    margin: 3vw 0vw 0vw 4vw;
+    margin: 3vw 0vw 0vw 7.5vw;
     box-sizing: border-box;
     text-decoration: none;
     font-family: 'Roboto', sans-serif;
@@ -27,38 +26,38 @@
     background-color: #4ef18f;
     transition: all 0.15s;
 }
-
-#subscrib_index:hover{
+.subscrib_index:hover{
     text-shadow: 0em 0em 2em rgba(255, 255, 255, 1);
     color: white;
     border-color: white;
 }
-
-#connexion_index{
-    width: 15vw;
-    height: 2vw;
-    display: inline-block;
-    padding: 0.46 1.6em;
-    border: 0.1em solid black;
-    border-radius: 20px;
-    margin: 3vw 0vw 0vw 4vw;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
-    color: black;
-    text-shadow: 0em 0.04em 0.04em rgba(0, 0, 0, 0.35);
-    background-color: #4ef18f;
-    transition: all 0.15s;
-}
-
-#connexion_index:hover{
+.connexion_index:hover{
     text-shadow: 0em 0em 2em rgba(255, 255, 255, 1);
     color: white;
     border-color: white;
 }
-#subscrib_index, #connexion_index{
+.subscrib_index, .connexion_index{
     background-color:  rgb(217, 217, 217, 0.5);
 }
-#subscrib_index:hover, #connexion_index:hover{
+.subscrib_index:hover, .connexion_index:hover{
     background-color: #4ef18f;
+}
+.subscrib_index a, .connexion_index a{
+    margin-right: auto;
+    margin-left: auto;
+}
+.confirm_connect{
+    width: 18vw;
+    height: 2vw;
+    display: inline-block;
+    padding: 0.46 3px;
+    border: 0.1em solid black;
+    border-radius: 20px;
+    margin: 1vw 0vw 0vw 6vw;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    color: black;
+    text-shadow: 0em 0.04em 0.04em rgba(0, 0, 0, 0.35);
+    background-color: #4ef18f;
+    transition: all 0.15s;
 }

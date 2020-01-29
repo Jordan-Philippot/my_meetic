@@ -18,17 +18,17 @@
 .form-groupe p{
 display: inline-flex;
 }
-#edit_button{
+.edit_button{
 width: 15vw;
 height: 2vw;
 display: inline-block;
-padding: 0.46em 1.6em;
+padding: 0.46em 2px;
 border: 0.1em solid black;
 border-radius: 20px;
 margin-left: auto;
 margin-right: auto;
-margin-top: 3vw;
-margin-bottom: 0.5vw;
+margin-top: 2vw;
+margin-bottom: 0vw;
 box-sizing: border-box;
 text-decoration: none;
 font-family: 'Roboto', sans-serif;
@@ -37,7 +37,7 @@ text-shadow: 0em 0.04em 0.04em rgba(0, 0, 0, 0.35);
 background-color: #4ef18f;
 transition: all 0.15s;
 }
-#edit_button:hover{
+.edit_button:hover{
     text-shadow: 0em 0em 2em rgba(255, 255, 255, 1);
     color: white;
     border-color: white;
@@ -46,10 +46,16 @@ transition: all 0.15s;
    margin-left: 10px;
    width: 50%;
 }
-#disconnect{
+.disconnect{
     margin-left: 75%;
     font-size: 0.8vw;
 }
-#disconnect:hover{
+.disconnect:hover{
     color: white;
+}
+.anonymous{
+    text-align: center;
+}
+u{
+    margin-left: 15px;
 }

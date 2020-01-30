@@ -35,6 +35,9 @@
     color: white;
     border-color: white;
 }
+.search_button a{
+    margin: auto;
+}
 .disconnect_flex{
     display: flex;
     margin-left: auto;
@@ -46,4 +49,27 @@
 }
 .form-section_search{
     margin-left: 5vw;
+}
+.container_result{
+    border-radius: 20px;
+    background: rgb(217, 217, 217, 0.5);
+    width: 30vw;
+    height: 25vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 6vw;
+    padding: 2vw;
+    position: relative;
+    z-index: 100;
+}
+.titre{
+    border-radius: 20px;
+    background: rgb(217, 217, 217, 0.5);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4vw;
+    padding: 2vw;
+    position: relative;
+    z-index: 100;
+
 }

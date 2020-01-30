@@ -12,19 +12,19 @@ Class ConnectController extends ConnectModel{
     
     public function connectionController(){
         $errors_connect = array();
-        $_GET['email'] = htmlspecialchars($_GET['email']);
-        $_GET['password'] = htmlspecialchars($_GET['password']);
+        $_POST['email'] = htmlspecialchars($_POST['email']);
+        $_POST['password'] = htmlspecialchars($_POST['password']);
         $success_co['success'] = "Bienvenue ! Vous êtes maintenant connnecté.";
-        if(empty($_GET['email']) || !filter_var($_GET['email'], FILTER_VALIDATE_EMAIL)){
+        if(empty($_POST['email']) || !filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)){
             $errors_connect['email'] = "Votre email n'est pas valide";
         }
-        if(empty($_GET['password']) || !is_string($_GET['password'])){
+        if(empty($_POST['password']) || !is_string($_POST['password'])){
             $errors_connect['password'] = "Vous devez rentrer un mot de passe valide";
         }
         if(empty($errors_connect)){
             $member = new ConnectModel();
-            $membre = $member->connectionModel($_GET['email']);
-            if(password_verify($_GET['password'], $membre['password']) && $membre['etat'] != 0){
+            $membre = $member->connectionModel($_POST['email']);
+            if(password_verify($_POST['password'], $membre['password']) && $membre['etat'] != 0){
                 $_SESSION['auth'] = $membre['id_membre'];
                 $_SESSION['success_co'] = $success_co;
                 header('Location: ../View/index_member.php');

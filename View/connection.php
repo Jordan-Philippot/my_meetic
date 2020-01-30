@@ -1,6 +1,6 @@
 <?php require_once 'header.php'; ?>
 <div class="container1">
-    <form action="../Controller/connectionController.php" method="get">
+    <form action="../Controller/connectionController.php" method="POST">
         <h1> Se connecter </h1>
         <div class="form-connect">
             <input type="email" name="email" class="form-control" placeholder="Email@"/>

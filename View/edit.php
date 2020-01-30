@@ -1,7 +1,7 @@
 <?php require_once 'header.php';?>
 
 <div class="container_edit">
-    <form action="../Controller/editController.php" method="get">
+    <form action="../Controller/editController.php" method="POST">
 
         <h1> Modifier votre profil </h1>
         <div class="form-edit">

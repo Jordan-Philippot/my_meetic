@@ -12,27 +12,26 @@ Class EditController extends EditModel{
     
     public function edittController(){
         $errors_edit = array();
-        $_GET['email_modif'] = htmlspecialchars($_GET['email_modif']);
-        $_GET['password_modif'] = htmlspecialchars($_GET['password_modif']);
+        $_POST['email_modif'] = htmlspecialchars($_POST['email_modif']);
+        $_POST['password_modif'] = htmlspecialchars($_POST['password_modif']);
         $success_edit['success'] = "Votre modification à bien été prise en compte.";
 
-        if(!empty($_GET['email_modif']) && !filter_var($_GET['email_modif'], FILTER_VALIDATE_EMAIL)){
+        if(!empty($_POST['email_modif']) && !filter_var($_POST['email_modif'], FILTER_VALIDATE_EMAIL)){
             $errors_edit['email_modif'] = "Votre email n'est pas valide";
         }
-        if((!empty($_GET['password_modif']) && !is_string($_GET['password_modif']))){ /*|| (!empty($_GET['password_modif']) && !preg_match('/^[a-zA-Z0-9_]+$/', $_GET['password_modif']))*/
+        if(!empty($_POST['password_modif']) && !is_string($_POST['password_modif'])){           //&& !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['password_modif'])
             $errors_edit['password_modif'] = "Vous devez rentrer un mot de passe valide";
         }
 
-
-        if(!empty($_GET['email_modif']) && empty($errors_edit)){
+        if(!empty($_POST['email_modif']) && empty($errors_edit)){
             $member = new EditModel();
-            $email_verify = $member->edit_email_verifyModel($_GET['email_modif']);
+            $email_verify = $member->edit_email_verifyModel($_POST['email_modif']);
             var_dump($email_verify);
 
             if(empty($email_verify)){
                 $_SESSION['success_edit'] = $success_edit;
                 $member = new EditModel();
-                $membre = $member->edit_mailModel($_SESSION['auth'], $_GET['email_modif']);
+                $membre = $member->edit_mailModel($_SESSION['auth'], $_POST['email_modif']);
                 header('Location: ../View/profil.php');
                 var_dump($email_verify);
             }
@@ -43,12 +42,12 @@ Class EditController extends EditModel{
             }
         }
 
-        if(!empty($_GET['password_modif']) && empty($errors_edit)){
-            $_GET['password_modif'] = password_hash($_GET['password_modif'], PASSWORD_BCRYPT);
+        if(!empty($_POST['password_modif']) && empty($errors_edit)){
+            $_POST['password_modif'] = password_hash($_POST['password_modif'], PASSWORD_BCRYPT);
             $_SESSION['success_edit'] = $success_edit;
             $member = new EditModel();
-            $membre = $member->edit_passwordModel($_SESSION['auth'], $_GET['password_modif']);
-            //if(password_verify($_GET['password_modif'], $membre['password'])){
+            $membre = $member->edit_passwordModel($_SESSION['auth'], $_POST['password_modif']);
+            //if(password_verify($_POST['password_modif'], $membre['password'])){
             header('Location: ../View/profil.php');
         }
     
@@ -58,7 +57,7 @@ Class EditController extends EditModel{
         };  
 
 
-        if(isset($_GET['delete'])){
+        if(isset($_POST['delete'])){
             $delete_edit = "Votre compte à bien été desactivé.";
             $_SESSION['delete_edit'] = $delete_edit;
             $member = new EditModel();

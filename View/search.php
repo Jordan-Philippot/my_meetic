@@ -5,12 +5,12 @@ endif; ?>
 
     <div class="container_search">
         <h1> Trouver des membres près de chez vous </h1>
-       
-        <form action="../Controller/searchController.php" method="get">
+    
+        <form action="../Controller/searchController.php" method="GET">
 
         <div class="form-section_search">
             <div class="form-group_search">
-                <select name="genre" id="genre_search">
+                <select name="genre" id="genre">
                     <option value="">Genre</option>
                     <option value="homme">Homme</option>
                     <option value="femme">Femme</option>

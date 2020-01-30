@@ -17,7 +17,7 @@
       </ul>
   </div>
   <?php endif; ?>
-    <form action="../Controller/membersController.php" method="get">
+    <form action="../Controller/membersController.php" method="POST">
       <div class="form-section">
         <div class="form-group">
           <input type="text" name="nom" class="form-control" placeholder="Nom" minlength="2" maxlength="30" />

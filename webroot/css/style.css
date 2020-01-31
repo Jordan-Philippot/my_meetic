@@ -14,9 +14,22 @@ h1, h3{
     font-family: 'Alata', sans-serif;
     text-shadow:0 0 3px #7A7A7A;
 }
+h2{
+    text-align: center;
+    color: white;
+    font-family: 'Alata', sans-serif;
+    text-shadow:0 0 3px #7A7A7A;
+
+}
 h1{
     font-size: 2vw;
 }
+hr {
+    height: 5px;
+    border: 0;
+    box-shadow: 0 10px 10px -10px #8c8c8c inset;
+    border-radius: 30px;
+  }
 nav{
     height: 2vw;
     position: fixed;
@@ -130,7 +143,7 @@ a{
     width: 15vw;
     height: 2vw;
     display: inline-block;
-    padding: 0.46em 1.6em;
+    padding: 1px 2px;
     border: 0.1em solid black;
     border-radius: 20px;
     margin: 0vw 0vw 0vw 12vw;

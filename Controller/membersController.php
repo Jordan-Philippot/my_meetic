@@ -23,10 +23,10 @@ Class MembersController extends MembersModel{
         $_POST['loisir3'] = htmlspecialchars($_POST['loisir3']);
         $success['registration'] = "Votre inscription a bien été pris en compte";
         
-        if(empty($_POST['nom']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['nom']) || !is_string($_POST['nom'])){
+        if(empty($_POST['nom']) || !preg_match('/^[a-zA-Z_]+$/', $_POST['nom']) || !is_string($_POST['nom'])){
             $errors['nom'] = "Votre nom n'est pas valide";
         }
-        if(empty($_POST['prenom']) || !preg_match('/^[a-zA-Z0-9_]+$/', $_POST['prenom']) || !is_string($_POST['prenom'])){
+        if(empty($_POST['prenom']) || !preg_match('/^[a-zA-Z_]+$/', $_POST['prenom']) || !is_string($_POST['prenom'])){
             $errors['prenom'] = "Votre prenom n'est pas valide";
         }
         

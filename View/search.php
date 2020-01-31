@@ -25,14 +25,21 @@ endif; ?>
             <div class="form-group_search">
                 <input id="loisir" type="text" name="loisir" class="form-control" placeholder="Son/Ses loisir(s)" minlength="2" maxlength="30"/>
             </div>
+            
+            <div class="form-group_search">
+                <button type="button" class="loisir_button" onclick="loisir1_text();">#Dance</button>
+                <button type="button" class="loisir_button" onclick="loisir2_text();">#Cuisine</button>
+                <button type="button" class="loisir_button" onclick="loisir3_text();">#Poney</button>
+                <button type="button" class="loisir_button" onclick="loisir4_text();">#Films</button>
+            </div>
         
             <div class="form-group_search">
                 <select name="age" id="age">
                     <option value="">Tranche d'âge</option>
-                    <option value="18_25">18/25</option>
-                    <option value="25_35">25/35</option>
-                    <option value="35_45">35/45</option>
-                    <option value="45_plus">45 et +</option>
+                    <option value="18-25">18/25</option>
+                    <option value="25-35">25/35</option>
+                    <option value="35-45">35/45</option>
+                    <option value="45-100">45 et +</option>
                 </select>
             </div>
         </div>

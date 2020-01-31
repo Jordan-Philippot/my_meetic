@@ -11,55 +11,60 @@ endif; ?>
     <?php for($i = 0 ; $i < sizeof($_SESSION['membres']) ; $i++): ?>
 
       <div class="container_result">
+     
+        <h2> <?= $_SESSION['membres'][$i]["prenom"].' '.$_SESSION['membres'][$i]["nom"] ?> </h2>
+        
         <div class="form-groupe">
-          <p class="profil_session"><u> Genre </u> : </p> <p><?= $_SESSION['membres'][$i]["genre"] ?></p>
+          <p class="profil_session"><u> Genre : </u></p> <p><?= $_SESSION['membres'][$i]["genre"] ?></p><hr>
         </div>
 
         <div class="form-groupe">
-          <p class="profil_session"><u> Prénom </u> : </p> <p> <?= $_SESSION['membres'][$i]["prenom"] ?></p>
-        </div>
-
-        <div class="form-groupe">
-          <p class="profil_session"><u> Nom </u>: </p> <p> <?= $_SESSION['membres'][$i]["nom"] ?></p>
-        </div>
-
-        <div class="form-groupe">
-          <p class="profil_session"><u> Email </u> : </p> <p><?= $_SESSION['membres'][$i]["email"] ?></p>
+          <p class="profil_session"><u> Pour joindre  <?= $_SESSION['membres'][$i]["prenom"] ?> : </u></p> <p><?= $_SESSION['membres'][$i]["email"] ?></p><hr>
         </div>
 
         <?php if(isset($_SESSION['membres'][$i]["loisir2"]) && !empty($_SESSION['membres'][$i]["loisir2"]) && !is_null($_SESSION['membres'][$i]["loisir1"]) && isset($_SESSION['membres'][$i]["loisir3"]) && !empty($_SESSION['membres'][$i]["loisir3"]) && !is_null($_SESSION['membres'][$i]["loisir3"])): ?>
             <div class="form-groupe">
-              <p class="profil_session"><u> Loisirs </u> : </p> <p><?= $_SESSION['membres'][$i]["loisir1"] ?>, <?= $_SESSION['membres'][$i]["loisir2"] ?>, <?= $_SESSION['membres'][$i]["loisir3"] ?></p>
+              <p class="profil_session"><u> Aime : </u></p> <p><?= $_SESSION['membres'][$i]["loisir1"] ?>, <?= $_SESSION['membres'][$i]["loisir2"] ?>, <?= $_SESSION['membres'][$i]["loisir3"] ?></p><hr>
             </div>
 
         <?php elseif(isset($_SESSION['membres'][$i]["loisir1"]) && !empty($_SESSION['membres'][$i]["loisir2"]) && !is_null($_SESSION['membres'][$i]["loisir2"])): ?>
           <div class="form-groupe">
-            <p class="profil_session"><u> Loisirs </u> : </p> <p><?= $_SESSION['membres'][$i]["loisir1"] ?>, <?= $_SESSION['membres'][$i]["loisir2"] ?></p>
+            <p class="profil_session"><u> Aime : </u></p> <p><?= $_SESSION['membres'][$i]["loisir1"] ?>, <?= $_SESSION['membres'][$i]["loisir2"] ?></p><hr>
           </div>
           
         <?php else:?>
           <div class="form-groupe">
-            <p class="profil_session"><u> Loisirs </u> : </p> <p><?= $_SESSION['membres'][$i]["loisir1"]?></p>
+            <p class="profil_session"><u> Aime : </u></p> <p><?= $_SESSION['membres'][$i]["loisir1"]?></p><hr>
           </div>
         <?php endif;?>
 
         <div class="form-groupe">
-          <p class="profil_session"><u> Ville </u> : </p> <p><?= $_SESSION['membres'][$i]["ville"] ?></p>
+          <p class="profil_session"><u> Habite à : </u></p> <p><?= $_SESSION['membres'][$i]["ville"] ?></p><hr>
         </div>
 
         <div class="form-groupe">
-          <p class="profil_session"><u> Date de naissance </u> : </p> <p><?= $_SESSION['membres'][$i]["date_naissance"] ?></p>
+          <p class="profil_session"><u> Âge : </u></p> <p><?= $_SESSION['membres'][$i]["age_membre"] ?> ans</p>
         </div>
         
       </div>
-      <?php endfor; ?>
+      <?php endfor; 
+      if(empty($_SESSION['membres'])):?>
+        <div class="alert-danger_edit">
+            <ul>
+        <?php $danger_session_search = $_SESSION['search_null'];
+        foreach($danger_session_search as $danger_search): ?>
+            <li> <?= $danger_search ?> </li>
+        <?php endforeach; ?>
+        </ul>
+    </div>
+        <?php endif; ?>
+      <div class="container_button">
+        <button class="search_button"><a href="search.php">Nouvelle Recherche</a></button>
 
-
-      <button class="search_button"><a href="search.php">Nouvelle Recherche</a></button>
-
-      <div class="disconnect_flex">
-          <p><a class="disconnect" href="index.php">Se déconnecter</a><p>
-          <p><a class="disconnect" href="profil.php">Mon profil</a><p>
+        <div class="disconnect_flex">
+            <p><a class="disconnect" href="index.php">Se déconnecter</a><p>
+            <p><a class="disconnect" href="profil.php">Mon profil</a><p>
+        </div>
       </div>
     </form>
 <?php require_once 'footer.php'; 

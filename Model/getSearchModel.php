@@ -46,36 +46,4 @@ Class SearchModel{
         $membre = $statement->fetchAll();
         return $membre;
     }
-
-
-
-       /* public function ageModel($date_naissance){
-        try{
-            $bdd = new PDO('mysql:host=127.0.0.1;dbname=my_meetic;charset=utf8', 'root', 'root');
-        }
-        catch (Exception $e){
-            die('Erreur : ' . $e->getMessage());
-        }
-        $statement = $bdd->prepare('SELECT date_naissance FROM membre WHERE etat = 1');
-        $statement->bindValue(':date_naissance', $date_naissance);
-        $statement->execute();
-        $date_naissance = $statement->fetch();
-        
-        return $date_naissance;
-    }*/
-
-       /* public function content_searchModel($id_membre){
-        try{
-            $bdd = new PDO('mysql:host=127.0.0.1;dbname=my_meetic;charset=utf8', 'root', 'root');
-        }
-        catch (Exception $e){
-            die('Erreur : ' . $e->getMessage());
-        }
-    
-        $statement = $bdd->prepare('SELECT * FROM membre WHERE id_membre IN (:id_membre)');
-        $statement->bindValue(':id_membre', $id_membre);
-        $statement->execute();
-        $membre = $statement->fetchAll();
-
-        return $membre;*/
-    }
+}

@@ -1,6 +1,6 @@
-<?php //require_once '../bdd.php'; 
-
+<?php
 Class MembersModel{
+    
     public function subscribeModel($loisir1, $loisir2, $loisir3, $ville, $nom, $prenom, $date_naissance, $genre, $email, $password){
         try{
             $bdd = new PDO('mysql:host=127.0.0.1;dbname=my_meetic;charset=utf8', 'root', 'root');

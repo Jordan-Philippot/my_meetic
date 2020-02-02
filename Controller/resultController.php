@@ -7,7 +7,6 @@ try{
 catch (Exception $e){
     die('Erreur : ' . $e->getMessage());
 }
-
 Class ResultController{
     
     public function Result_membersController(){

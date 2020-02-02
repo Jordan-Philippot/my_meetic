@@ -6,7 +6,7 @@
     z-index: 100;
     border-radius: 20px;
 }
-.subscription_co a:hover, .edit_co a:hover, h1, h2, h3, input:hover, .container_index a:hover, .subscrib:hover, .connec:hover, .connexion:hover, .alert-succes_co, .alert-danger_signup, .alert-danger_co, .alert-danger, .search_button:hover, .search_button a:hover, .loisir_button:hover, .next:hover, .prev:hover, .edit_search a:hover, .edit_profil a:hover, .subscrib_index:hover, .connexion_index:hover, .disconnect:hover, .toggle_profil:hover, .edit_button:hover{
+.subscription_co a:hover, .edit_co a:hover, h1, h2, h3, input:hover, .container_index a:hover, .subscrib:hover, .connec:hover, .connexion:hover, .alert-succes_co, .alert-danger_signup, .alert-danger_co, .alert-danger, .search_button:hover, .loisir_button:hover, .next:hover, .prev:hover, .edit_search a:hover, .edit_profil a:hover, .subscrib_index:hover, .connexion_index:hover, .disconnect:hover, .toggle_profil:hover, .edit_button:hover{
     color: white;
 }
 .subscrib_index a, .connexion_index a, .container_index, .container_edit, .alert-succes_edit, .container_profil, .edit_button, .alert-succes_co, .alert-danger_co, .alert-danger, .form-connect{
@@ -50,7 +50,7 @@ nav{
     background-color: white;
     border-radius: 10px;
 }
-header nav ul li a:hover{
+header nav ul li a:hover, h2{
     color: #7A7A7A;
 }
 nav ul li{

@@ -2,6 +2,7 @@
 <div class="container1">
     <form action="../Controller/connectionController.php" method="POST">
         <h1> Se connecter </h1>
+        
         <div class="form-connect">
             <input type="email" name="email" class="form-control" placeholder="Email@"/>
         </div>
@@ -34,36 +35,35 @@
             <?php endforeach; ?>
         </ul>
     </div>
-    <?php endif; 
+<?php endif; 
 
-    if(!empty($_SESSION['success_signup']) && empty($_SESSION['delete_edit'])): ?>
-        <div class="alert-succes_co">
-            <ul>
-                <?php $success_session_signup = $_SESSION['success_signup'];
-                foreach($success_session_signup as $success_signup): ?>
-                    <li> <?= $success_signup ?> </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    <?php endif;
+if(!empty($_SESSION['success_signup']) && empty($_SESSION['delete_edit'])): ?>
+    <div class="alert-succes_co">
+        <ul>
+            <?php $success_session_signup = $_SESSION['success_signup'];
+            foreach($success_session_signup as $success_signup): ?>
+                <li> <?= $success_signup ?> </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif;
 
-    if(!empty($_SESSION['delete_edit'])):?>
-        <div class="alert-succes_co">
-            <?php $delete_edit = $_SESSION['delete_edit']; ?>
-            <?= $delete_edit ?>
-        </div>
-    <?php endif; 
+if(!empty($_SESSION['delete_edit'])):?>
+    <div class="alert-succes_co">
+        <?php $delete_edit = $_SESSION['delete_edit']; ?>
+        <?= $delete_edit ?>
+    </div>
+<?php endif; 
 
-    if(!empty($_SESSION['inactive'])):?>
-        <div class="alert-danger_co">
-            <ul>
-                <?php $inactive = $_SESSION['inactive'];
-                foreach($inactive as $inactiv): ?>
-                    <li> <?= $inactiv ?> </li>
-                <?php endforeach; ?>
-            </ul>
-        </div>
-    <?php endif; 
-    
-        
+if(!empty($_SESSION['inactive'])):?>
+    <div class="alert-danger_co">
+        <ul>
+            <?php $inactive = $_SESSION['inactive'];
+            foreach($inactive as $inactiv): ?>
+                <li> <?= $inactiv ?> </li>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; 
+       
 require_once 'footer.php'; ?>

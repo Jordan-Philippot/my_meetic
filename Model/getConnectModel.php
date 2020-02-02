@@ -1,6 +1,7 @@
-<?php //require_once '../bdd.php'; 
+<?php 
+
 Class ConnectModel{
-    
+
     public function connectionModel($email){
         try{
             $bdd = new PDO('mysql:host=127.0.0.1;dbname=my_meetic;charset=utf8', 'root', 'root');

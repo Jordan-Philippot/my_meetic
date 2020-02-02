@@ -7,7 +7,6 @@ try{
 catch (Exception $e){
     die('Erreur : ' . $e->getMessage());
 }
-
 Class ProfilController{
     
     public function ProfilerController(){

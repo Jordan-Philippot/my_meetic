@@ -1,12 +1,6 @@
 <?php
 require_once '../View/header.php';
 require_once '../Model/getEditModel.php';
-try{
-    $bdd = new PDO('mysql:host=127.0.0.1;dbname=my_meetic;charset=utf8', 'root', 'root');
-}
-catch (Exception $e){
-    die('Erreur : ' . $e->getMessage());
-}
 
 Class EditController extends EditModel{
     
@@ -70,3 +64,4 @@ $member = new EditController();
 $membre = $member->edittController();
 
 require_once '../View/footer.php';
+

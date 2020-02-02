@@ -7,10 +7,10 @@ try{
 catch (Exception $e){
     die('Erreur : ' . $e->getMessage());
 }
-
 Class ConnectController extends ConnectModel{
     
     public function connectionController(){
+     
         $errors_connect = array();
         $_POST['email'] = htmlspecialchars($_POST['email']);
         $_POST['password'] = htmlspecialchars($_POST['password']);

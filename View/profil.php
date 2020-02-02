@@ -17,70 +17,74 @@ $membre = $member->ProfilerController();
   <div class="container_profil">
 
     <h1>Votre profil <br></h1>
-  <?php if(isset($_SESSION['auth'])):?>
-    <div class="profil_block">
-      <img class="profil_image" src="../webroot/Images/profil.png" alt="profil par default">
-      
-      <div class="form-groupe">
-        <p class="profil_session_name"> <?= $membre['prenom'].' '.$membre['nom']?></p>
-      </div>
+    <?php if(isset($_SESSION['auth'])):?>
+      <div class="profil_block">
+        <img class="profil_image" src="../webroot/Images/profil.png" alt="profil par default">
+        
+        <div class="form-groupe">
+          <h2 class="profil_session_name"> <?= $membre['prenom'].' '.$membre['nom']?></h2>
+          <input type="button" class="toggle_profil" onclick="toggle()" value="Profil"></input>
+        </div>
 
-      <div class="form-groupe">
-        <p class="profil_session"><?= $membre['email'] ?></p>
-      </div>
-    
-      <div class="form-groupe">
-        <p class="profil_session"><?= $membre['genre'] ?></p>
-      </div>
-
-      <div class="form-groupe">
-        <p class="profil_session">De <?= $membre['ville'] ?></p>
-      </div>
-
-      <div class="form-groupe">
-        <p class="profil_session"> Née le <?= $membre['date_naissance'] ?></p>
-      </div>
-        <?php if(isset($membre['loisir2']) && !empty($membre['loisir2']) && !is_null($membre['loisir2']) && isset($membre['loisir3']) && !empty($membre['loisir3']) && !is_null($membre['loisir3'])): ?>
+        <div id="toggle">
           <div class="form-groupe">
-            <p class="profil_session"> Vous aimez :  <?= $membre['loisir1'] ?>, <?= $membre['loisir2'] ?>, <?= $membre['loisir3'] ?></p>
-          </div>
-
-        <?php elseif(isset($membre['loisir2']) && !empty($membre['loisir2']) && !is_null($membre['loisir2'])): ?>
-          <div class="form-groupe">
-            <p class="profil_session"> Vous aimez :  <?= $membre['loisir1'] ?>, <?= $membre['loisir2'] ?></p>
+            <p class="personal_session"><?= $membre['email'] ?></p>
           </div>
         
-        <?php else:?>
           <div class="form-groupe">
-            <p class="profil_session"> Vous aimez :  <?= $membre['loisir1']?></p>
+            <p class="personal_session"><?= $membre['genre'] ?></p>
           </div>
-        <?php endif;?>
-      
-      <div class="form-groupe">
-        <p class="profil_session">  Mot de passe  :  ******** </p>
-      </div>
-    
 
-      <div class="form-groupe">
-        <p class="profil_session"> Inscrit depuis le :  <?= $membre['date_inscription'] ?><br></p>
-      </div>
+          <div class="form-groupe">
+            <p class="personal_session">De <?= $membre['ville'] ?></p>
+          </div>
+
+          <div class="form-groupe">
+            <p class="personal_session"> Née le <?= $membre['date_naissance'] ?></p>
+          </div>
+
+          <?php if(isset($membre['loisir2']) && !empty($membre['loisir2']) && !is_null($membre['loisir2']) && isset($membre['loisir3']) && !empty($membre['loisir3']) && !is_null($membre['loisir3'])): ?>
+            <div class="form-groupe">
+              <p class="personal_session"> Vous aimez :  <?= $membre['loisir1'] ?>, <?= $membre['loisir2'] ?>, <?= $membre['loisir3'] ?></p>
+            </div>
+
+          <?php elseif(isset($membre['loisir2']) && !empty($membre['loisir2']) && !is_null($membre['loisir2'])): ?>
+            <div class="form-groupe">
+              <p class="personal_session"> Vous aimez :  <?= $membre['loisir1'] ?>, <?= $membre['loisir2'] ?></p>
+            </div>
+          
+          <?php else:?>
+            <div class="form-groupe">
+              <p class="personal_session"> Vous aimez :  <?= $membre['loisir1']?></p>
+            </div>
+          <?php endif;?>
+          
+          <div class="form-groupe">
+            <p class="personal_session">  Mot de passe  :  ******** </p>
+          </div>
+        
+
+          <div class="form-groupe">
+            <p class="personal_session"> Inscrit depuis le :  <?= $membre['date_inscription'] ?><br></p>
+          </div>
 
 
-      <form action="edit.php" method="get">
-        <button type="submit" class="edit_button">Modifier mon compte</button>
-      </form>
-        <div class="disconnect_flex">
+          <form action="edit.php" method="get">
+            <button type="submit" class="edit_button">Modifier mon compte</button>
+          </form>
 
-      <div class="disconnect_flex">
-        <div>
-          <p><a class="disconnect" href="connection.php">Se déconnecter</a><p>
+          <div class="disconnect_flex">
+            <div>
+              <p><a class="disconnect" href="connection.php">Se déconnecter</a></p>
+            </div>
+            <div>
+              <p><a class="disconnect" href="search.php">Rechercher membres</a></p>
+            </div>
+          </div>
+
         </div>
-        <div>
-          <p><a class="disconnect" href="search.php">Rechercher membres</a><p>
-        </div>
       </div>
 
-    </div>
     <?php else:?>
       <div class="alert-danger">
         <p class="anonymous">Vous n'êtes pas connecté</p>

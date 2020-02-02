@@ -3,20 +3,21 @@
 
 <div class="container">
 
-      <h1>Sign Up <br></h1>
-      <h3>Trouvez l'amour près de chez vous en quelques clics : </h3>
+  <h1>Sign Up <br></h1>
+  <h3>Trouvez l'amour près de chez vous en quelques clics : </h3>
     
-<?php if(!empty($_SESSION['error'])):?>
-  <div class="alert-danger_signup">
-    <p>Vous n'avez pas rempli le formulaire correctement : </p>
+  <?php if(!empty($_SESSION['error'])):?>
+    <div class="alert-danger_signup">
+      <p>Vous n'avez pas rempli le formulaire correctement : </p>
       <ul>
         <?php $error_session = $_SESSION['error'];
-        foreach($error_session as $errors):?>
-            <li> <?= $errors; ?> </li>
+        foreach($error_session as $errors): ?>
+            <li> <?= $errors ?> </li>
         <?php endforeach; ?>
       </ul>
-  </div>
+    </div>
   <?php endif; ?>
+
     <form action="../Controller/membersController.php" method="POST">
       <div class="form-section">
         <div class="form-group">
@@ -45,11 +46,11 @@
 
       <div class="form-section">
         <div class="form-group">
-          <input type="email" name="email" class="form-control" placeholder="email@" minlength="5" maxlength="30"/>
+          <input type="email" name="email" class="form-control" placeholder="email@" minlength="5" maxlength="40"/>
         </div>
 
         <div class="form-group">
-          <input type="text" name="ville" class="form-control" placeholder="Ville" minlength="2" maxlength="30"/>
+          <input type="text" name="ville" class="form-control" placeholder="Ville" minlength="2" maxlength="40"/>
         </div>
       </div>
 

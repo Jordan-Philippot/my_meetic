@@ -7,7 +7,6 @@ try{
 catch (Exception $e){
     die('Erreur : ' . $e->getMessage());
 }
-
 Class SearchController extends SearchModel{
     
     public function search_membersController() {
@@ -31,7 +30,6 @@ Class SearchController extends SearchModel{
             $membre = $member->search_membersModel( 1, $_GET['genre'], $ville[0], $loisir[0], $tranche_age[0], $tranche_age[1]);
             $_SESSION['search_null'] = $danger_session_search;
             $_SESSION['membres'] = $membre;
-            var_dump($tranche_age);
             header('Location: ../View/result_search.php');
             return $membre;
         }

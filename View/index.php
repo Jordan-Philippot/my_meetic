@@ -1,5 +1,5 @@
-<?php require_once 'header.php'; ?>
-<?php session_destroy(); ?>
+<?php require_once 'header.php';
+session_destroy(); ?>
 <!--___________________________________________________________________________    BODY     _________________________________________________________________________________________-->
     <div class="container_index">
         <h1> Bienvenue sur my meetic !  </h1>
